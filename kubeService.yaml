@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: node-app-service
   labels:
-    app: tomcat-app
+    app: node-app
 spec:
   type: NodePort
   ports:

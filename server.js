@@ -13,7 +13,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 app.get("/health", (req, res) => {
-  res.json({ statusCode: 200, data: "Success" });
+  res.json({ statusCode: 200, data: "Success", applicationVersion: "V2" });
 });
 
 app.listen(PORT, () => {

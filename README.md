@@ -2,7 +2,7 @@
 
 ## Starting application
 
-Please not that the image `namanyash/sit323-737-2023-t1-prac7p` for Kubernetes deployment has been pushed to DockerHub.
+Please not that the images `namanyash/sit737_7c:v1` and `namanyash/sit737_7c:v2` for Kubernetes deployment have been pushed to DockerHub.
 
 To start a Kubernetes deployment use the following command:
 
@@ -18,12 +18,38 @@ Get the IP address for the service using the following command
 
 `kubectl get services`
 
-> Access the Node application on the URL `http://<Service-IP-address>:8000/getToken`
+> Access the Node application on the URL `http://<Service-IP-address>:8000/health`
+> Notice that application version says "V1"
 
-## In case of connection timeout
+### In case of connection timeout
 
 > For Windows docker desktop users and in case of any issues when connecting to the service use the following command:
 
 `kubectl port-forward service/node-app-service 8000`
 
-Access the microservice on the url `http://localhost:8000/getToken`
+Access the microservice on the url `http://localhost:8000/health`
+
+> Notice that application version says "V1"
+
+## Updating the application
+
+Update the kubernetes deployment to utilize the version two of the application using the following command:
+
+`kubectl apply -f .\kubeDeployV2.yaml`
+
+Get the IP address for the service using the following command
+
+`kubectl get services`
+
+> Access the Node application on the URL `http://<Service-IP-address>:8000/health`
+> Notice that application version says "V1"
+
+### In case of connection timeout
+
+> For Windows docker desktop users and in case of any issues when connecting to the service use the following command:
+
+`kubectl port-forward service/node-app-service 8000`
+
+Access the microservice on the url `http://localhost:8000/health`
+
+> Notice that application version says "V2"
